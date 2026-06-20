@@ -3,16 +3,157 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gallery Portfolio</title>
+    <meta
+      name="description"
+      content="A light editorial artist portfolio for photographic projects, exhibitions, and selected works."
+    >
+    <title>Elian Vale Studio | Artist Portfolio</title>
     <link rel="stylesheet" href="../shared/base.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="../shared/nav.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="site-shell">
-      <h1>Gallery Portfolio</h1>
-      <p>Starter page for a gallery portfolio demo.</p>
+    <header class="portfolio-header" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Elian Vale Studio home">Elian Vale</a>
+      <nav class="portfolio-nav">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Artist and photographer</p>
+          <h1 id="hero-title">Quiet studies of coast, weather, and human scale.</h1>
+          <p>
+            Elian Vale creates large-format photographic essays shaped by archival
+            research, travel journals, and the slow observation of changing light.
+          </p>
+        </div>
+        <figure class="hero-image reveal">
+          <img
+            src="assets/Ivan-Aivazovsky_-_View_of_Constantinople_and_the_Bosphorus.jpg"
+            alt="Expansive coastal scene with ships and luminous sky"
+          >
+          <figcaption>New series preview, 2026</figcaption>
+        </figure>
+      </section>
+
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="section-kicker">About Artist</div>
+        <div class="about-copy reveal">
+          <h2 id="about-title">A practice built around atmosphere, distance, and patient looking.</h2>
+          <p>
+            Working between photography, print, and installation, Elian frames the
+            sea as a site of memory rather than spectacle. Each body of work begins
+            with field notes and ends as a sequence of images arranged for rhythm,
+            pause, and material detail.
+          </p>
+        </div>
+        <dl class="studio-notes reveal">
+          <div>
+            <dt>Based</dt>
+            <dd>London and Marseille</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Editorial, fine art, exhibitions</dd>
+          </div>
+          <div>
+            <dt>Available</dt>
+            <dd>Commissions and print editions</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="featured section-pad" aria-labelledby="featured-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured Gallery</p>
+          <h2 id="featured-title">Three movements from the current archive.</h2>
+        </div>
+        <div class="featured-grid stagger-group">
+          <button class="image-card tall" type="button" data-lightbox="0">
+            <img
+              src="assets/ivan_aivazovsky007.jpg"
+              alt="Moonlit water with vessels near a distant horizon"
+            >
+            <span>01 / Blue Hour</span>
+          </button>
+          <button class="image-card" type="button" data-lightbox="1">
+            <img
+              src="assets/Ivan Aivazovsky840L14112_7FZPD.jpg"
+              alt="Storm-lit sea with dramatic clouds and a small vessel"
+            >
+            <span>02 / Weather Line</span>
+          </button>
+          <button class="image-card" type="button" data-lightbox="2">
+            <img
+              src="assets/ivan_aivazovskii_a_moonlit_view_of_the_bosphorus_1884_oil_on_canvas.jpg"
+              alt="Moonlit Bosphorus view with reflected light on dark water"
+            >
+            <span>03 / Night Crossing</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="projects section-pad" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Project Categories</p>
+          <h2 id="projects-title">Bodies of work arranged for publication, wall, and room.</h2>
+        </div>
+        <div class="category-list reveal">
+          <article>
+            <span>01</span>
+            <h3>Coastal Essays</h3>
+            <p>Sequenced landscapes, weather studies, and long horizon observations.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Commissioned Portraits</h3>
+            <p>Environmental portraits for artists, makers, and independent publications.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Print Editions</h3>
+            <p>Limited pigment prints, portfolio boxes, and exhibition-ready framed works.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="selected section-pad" id="work" aria-labelledby="work-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected Works</p>
+          <h2 id="work-title">Recent images for gallery review and editorial licensing.</h2>
+        </div>
+        <div class="works-grid stagger-group" id="works-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
+        <div class="contact-image reveal" aria-hidden="true">
+          <img src="assets/Ivan Aivazovsky20161117_214102.webp" alt="">
+        </div>
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">For commissions, editions, and exhibition previews.</h2>
+          <p>
+            Share a brief note about the project, preferred timeline, and intended
+            use. Studio replies are sent within three working days.
+          </p>
+          <a class="contact-link" href="mailto:studio@example.com">studio@example.com</a>
+        </div>
+      </section>
     </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork preview" hidden>
+      <button class="lightbox-close" type="button" aria-label="Close preview">Close</button>
+      <button class="lightbox-nav prev" type="button" aria-label="Previous image">Prev</button>
+      <figure>
+        <img id="lightbox-image" src="" alt="">
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+      <button class="lightbox-nav next" type="button" aria-label="Next image">Next</button>
+    </div>
   </body>
 </html>
