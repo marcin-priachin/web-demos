@@ -3,16 +3,192 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Experimental Motion</title>
+    <meta
+      name="description"
+      content="A professional one-page interactive demo with kinetic typography, layered cards, scroll motion, and product-focused panels."
+    >
+    <title>Experimental Motion | SignalGrid</title>
     <link rel="stylesheet" href="../shared/base.css">
     <link rel="stylesheet" href="styles.css">
     <script src="../shared/nav.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="site-shell">
-      <h1>Experimental Motion</h1>
-      <p>Starter page for an experimental motion demo.</p>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <main class="motion-page">
+      <section class="hero section" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <p class="eyebrow reveal">SignalGrid Motion Lab</p>
+          <h1 id="hero-title" class="kinetic-title reveal">
+            <span>Operational</span>
+            <span>intelligence</span>
+            <span>in motion.</span>
+          </h1>
+          <p class="hero__copy reveal">
+            A responsive product surface for teams that need dense telemetry,
+            clean prioritization, and interaction patterns that keep pace with
+            live systems.
+          </p>
+          <div class="hero__actions reveal" aria-label="Primary actions">
+            <a class="magnetic-button button button--primary" href="#panels">Explore Panels</a>
+            <a class="magnetic-button button button--ghost" href="#contact">Request Preview</a>
+          </div>
+        </div>
+
+        <div class="hero-orbit reveal" aria-label="Live operating model preview">
+          <img
+            class="hero-visual"
+            src="assets/hero-operations.png"
+            alt="Abstract operational intelligence interface with layered data panels and connected signal nodes"
+          >
+          <div class="orbit-card orbit-card--main interactive-card">
+            <span class="card-kicker">Model Health</span>
+            <strong>98.7%</strong>
+            <small>Routing confidence across 18 active pipelines</small>
+          </div>
+          <div class="orbit-card orbit-card--top interactive-card">
+            <span>Latency</span>
+            <strong>42 ms</strong>
+          </div>
+          <div class="orbit-card orbit-card--bottom interactive-card">
+            <span>Risk Drift</span>
+            <strong>-12%</strong>
+          </div>
+          <div class="orbit-rings" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section id="panels" class="section panels" aria-labelledby="panels-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Interactive Cards</p>
+          <h2 id="panels-title">Layered control surfaces for live decisions.</h2>
+        </div>
+        <div class="panel-grid">
+          <article class="feature-panel interactive-card reveal" data-panel="sensing">
+            <span class="panel-index">01</span>
+            <h3>Signal Sensing</h3>
+            <p>Detect weak changes in usage, infrastructure, and customer behavior before they escalate.</p>
+            <button class="panel-toggle" type="button" aria-expanded="false">Inspect</button>
+            <div class="panel-detail">
+              <strong>Active watchlist</strong>
+              <span>37 services monitored with adaptive thresholds.</span>
+            </div>
+          </article>
+          <article class="feature-panel interactive-card reveal" data-panel="planning">
+            <span class="panel-index">02</span>
+            <h3>Scenario Planning</h3>
+            <p>Compare rollout paths, mitigation plans, and capacity changes against the same operating data.</p>
+            <button class="panel-toggle" type="button" aria-expanded="false">Inspect</button>
+            <div class="panel-detail">
+              <strong>Recommended path</strong>
+              <span>Staggered deployment with automated rollback guardrails.</span>
+            </div>
+          </article>
+          <article class="feature-panel interactive-card reveal" data-panel="handoff">
+            <span class="panel-index">03</span>
+            <h3>Team Handoff</h3>
+            <p>Package context, owners, evidence, and next actions into a concise operational thread.</p>
+            <button class="panel-toggle" type="button" aria-expanded="false">Inspect</button>
+            <div class="panel-detail">
+              <strong>Current queue</strong>
+              <span>9 handoffs ready with dependency maps attached.</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section story" aria-labelledby="story-title">
+        <div class="story__sticky">
+          <p class="eyebrow reveal">Scroll Story</p>
+          <h2 id="story-title" class="reveal">From noise to accountable movement.</h2>
+        </div>
+        <div class="story-steps">
+          <article class="story-step reveal">
+            <span>Sense</span>
+            <h3>Surface changes early</h3>
+            <p>Signals are clustered by business impact so operators can separate turbulence from material risk.</p>
+          </article>
+          <article class="story-step reveal">
+            <span>Align</span>
+            <h3>Build shared context</h3>
+            <p>Every recommendation carries the data, confidence, owner, and expected next state in one place.</p>
+          </article>
+          <article class="story-step reveal">
+            <span>Act</span>
+            <h3>Move with guardrails</h3>
+            <p>Automations stay visible, reversible, and tied to measurable operating outcomes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section stats" aria-labelledby="stats-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Animated Stats</p>
+          <h2 id="stats-title">Built for fast, defensible operating loops.</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat reveal">
+            <strong data-count="74">0</strong>
+            <span>% faster incident triage</span>
+          </div>
+          <div class="stat reveal">
+            <strong data-count="218">0</strong>
+            <span>signals normalized per minute</span>
+          </div>
+          <div class="stat reveal">
+            <strong data-count="31">0</strong>
+            <span>% fewer manual handoffs</span>
+          </div>
+          <div class="stat reveal">
+            <strong data-count="12">0</strong>
+            <span>teams aligned in one workspace</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section showcase" aria-labelledby="showcase-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Showcase Grid</p>
+          <h2 id="showcase-title">A compact system for high-signal product work.</h2>
+        </div>
+        <div class="showcase-grid">
+          <article class="showcase-item reveal">
+            <span class="showcase-icon">A</span>
+            <h3>Adaptive Alerts</h3>
+            <p>Thresholds respond to context without hiding the reason a change matters.</p>
+          </article>
+          <article class="showcase-item reveal">
+            <span class="showcase-icon">B</span>
+            <h3>Evidence Trails</h3>
+            <p>Every action keeps its source metrics, approvals, and timing visible.</p>
+          </article>
+          <article class="showcase-item reveal">
+            <span class="showcase-icon">C</span>
+            <h3>Priority Views</h3>
+            <p>Teams can switch between executive, operator, and engineering density.</p>
+          </article>
+          <article class="showcase-item reveal">
+            <span class="showcase-icon">D</span>
+            <h3>Deployment Guardrails</h3>
+            <p>Risk-aware automation makes changes observable before they become irreversible.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-labelledby="contact-title">
+        <div class="contact__inner reveal">
+          <p class="eyebrow">Contact CTA</p>
+          <h2 id="contact-title">Prototype the next version of your operations surface.</h2>
+          <p>
+            Bring a workflow, signal set, or product concept. We will turn it
+            into a focused interactive demo with motion that clarifies instead
+            of distracting.
+          </p>
+          <a class="magnetic-button button button--primary" href="mailto:hello@example.com">Start a Brief</a>
+        </div>
+      </section>
     </main>
   </body>
 </html>
