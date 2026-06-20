@@ -3,16 +3,229 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Local Business</title>
+    <meta
+      name="description"
+      content="Harbor & Hearth is a warm local cafe and restaurant serving seasonal plates, coffee, and relaxed evenings."
+    >
+    <title>Harbor & Hearth Cafe</title>
     <link rel="stylesheet" href="../shared/base.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="../shared/nav.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="site-shell">
-      <h1>Local Business</h1>
-      <p>Starter page for a local business demo.</p>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="business-nav" data-nav>
+      <a class="brand" href="#top" aria-label="Harbor & Hearth home">
+        <span class="brand-mark" aria-hidden="true">H&H</span>
+        <span>
+          <span class="brand-name">Harbor & Hearth</span>
+          <span class="brand-subtitle">Cafe & Kitchen</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        Menu
+      </button>
+
+      <nav class="nav-links" id="site-menu" aria-label="Primary navigation">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#hours">Hours</a>
+        <a href="#visit">Visit</a>
+        <a class="nav-cta" href="mailto:hello@harborhearth.example?subject=Reservation%20request">Reserve</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-bg" data-parallax></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Neighborhood cafe, seasonal kitchen</p>
+          <h1 id="hero-title">Good coffee, honest food, and a table that feels like yours.</h1>
+          <p class="hero-copy">
+            A friendly local spot for slow breakfasts, bright lunches, and relaxed evening plates
+            on Market Lane.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#menu">View menu</a>
+            <a class="button secondary" href="mailto:hello@harborhearth.example?subject=Reservation%20request">Reserve a table</a>
+          </div>
+          <dl class="quick-details" aria-label="Quick cafe details">
+            <div>
+              <dt>Today</dt>
+              <dd>8:00 AM - 9:30 PM</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>42 Market Lane</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section story-section" id="story">
+        <div class="section-inner two-column">
+          <div class="section-copy reveal">
+            <p class="eyebrow">Our story</p>
+            <h2>A small kitchen with a big welcome.</h2>
+            <p>
+              Harbor & Hearth started as a weekend coffee cart and grew into a local dining room
+              built around simple pleasures: good bread, careful coffee, generous plates, and staff
+              who remember your name.
+            </p>
+            <p>
+              We work with nearby bakers, growers, and roasters to keep the menu fresh without
+              making it fussy. Come in for a quiet morning table, a quick lunch, or an easy dinner
+              with friends.
+            </p>
+          </div>
+          <div class="story-card reveal">
+            <img src="assets/d3.jpg" alt="Warmly lit restaurant bar with tables and taps">
+            <div>
+              <strong>Locally minded</strong>
+              <span>Seasonal specials, fresh bakes, and a room designed for lingering.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section menu-section" id="menu">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Menu highlights</p>
+            <h2>Comforting food, made with care.</h2>
+            <p>
+              A compact menu of cafe favorites, seasonal plates, and house drinks. Ask the team
+              about the daily bake when you arrive.
+            </p>
+          </div>
+
+          <div class="menu-grid">
+            <article class="menu-card reveal">
+              <div>
+                <span class="menu-type">Breakfast</span>
+                <h3>Market Lane Breakfast</h3>
+                <p>Free-range eggs, roasted mushrooms, tomato relish, sourdough, and herb potatoes.</p>
+              </div>
+              <span class="price">$16</span>
+            </article>
+            <article class="menu-card reveal">
+              <div>
+                <span class="menu-type">Lunch</span>
+                <h3>Roast Chicken Grain Bowl</h3>
+                <p>Warm grains, greens, pickled fennel, toasted seeds, and lemon tahini dressing.</p>
+              </div>
+              <span class="price">$18</span>
+            </article>
+            <article class="menu-card reveal">
+              <div>
+                <span class="menu-type">Evening</span>
+                <h3>Short Rib & Root Mash</h3>
+                <p>Slow-braised short rib, carrot mash, greens, and rosemary jus.</p>
+              </div>
+              <span class="price">$24</span>
+            </article>
+            <article class="menu-card reveal">
+              <div>
+                <span class="menu-type">Drinks</span>
+                <h3>House Chai Latte</h3>
+                <p>Black tea, warm spice, oat or dairy milk, and a little local honey.</p>
+              </div>
+              <span class="price">$6</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Inside the room</p>
+            <h2 id="gallery-title">Warm corners, bright tables, familiar faces.</h2>
+          </div>
+          <div class="gallery-grid">
+            <img class="gallery-large reveal" src="assets/5_89.webp" alt="Polished wooden restaurant bar with warm lighting">
+            <img class="reveal" src="assets/room.jpg" alt="Cozy cafe bar with pendant lights and high tables">
+            <img class="reveal" src="assets/6.png" alt="Exterior of a brick corner restaurant building">
+          </div>
+        </div>
+      </section>
+
+      <section class="section details-section" id="hours">
+        <div class="section-inner details-grid">
+          <div class="hours-panel reveal">
+            <p class="eyebrow">Opening hours</p>
+            <h2>Open for breakfast, lunch, and relaxed evenings.</h2>
+            <dl class="hours-list">
+              <div>
+                <dt>Monday - Thursday</dt>
+                <dd>8:00 AM - 8:30 PM</dd>
+              </div>
+              <div>
+                <dt>Friday</dt>
+                <dd>8:00 AM - 10:00 PM</dd>
+              </div>
+              <div>
+                <dt>Saturday</dt>
+                <dd>9:00 AM - 10:00 PM</dd>
+              </div>
+              <div>
+                <dt>Sunday</dt>
+                <dd>9:00 AM - 4:00 PM</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="contact-panel reveal" id="visit">
+            <p class="eyebrow">Location & contact</p>
+            <h2>Find us on Market Lane.</h2>
+            <address>
+              42 Market Lane<br>
+              Riverside Quarter<br>
+              Springfield, ST 12345
+            </address>
+            <div class="contact-links">
+              <a href="tel:+15550141028">(555) 014-1028</a>
+              <a href="mailto:hello@harborhearth.example">hello@harborhearth.example</a>
+            </div>
+            <div class="map-placeholder" aria-label="Map placeholder showing Harbor & Hearth on Market Lane">
+              <span>Market Lane</span>
+              <strong>Harbor & Hearth</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reservation-section">
+        <div class="section-inner reservation-card reveal">
+          <div>
+            <p class="eyebrow">Reservations</p>
+            <h2>Planning a visit?</h2>
+            <p>
+              Send us your preferred date, time, party size, and a contact number. We will confirm
+              by email or phone. No booking backend is connected on this demo.
+            </p>
+          </div>
+          <div class="reservation-actions">
+            <a class="button primary" href="mailto:hello@harborhearth.example?subject=Reservation%20request&body=Preferred%20date%3A%0APreferred%20time%3A%0AParty%20size%3A%0AContact%20number%3A">
+              Email to reserve
+            </a>
+            <a class="button outline" href="https://wa.me/15550141028?text=Hello%20Harbor%20%26%20Hearth%2C%20I%27d%20like%20to%20request%20a%20reservation.">
+              WhatsApp us
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <span>Harbor & Hearth Cafe</span>
+      <span>Placeholder local-business demo for GitHub Pages.</span>
+    </footer>
   </body>
 </html>
