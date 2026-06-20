@@ -3,20 +3,348 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web Demos</title>
+    <meta
+      name="description"
+      content="A curated index of four static website demos: premium service, gallery portfolio, local business, and experimental motion."
+    >
+    <title>Web Demos | Static Website Collection</title>
     <link rel="stylesheet" href="shared/base.css">
-    <script src="shared/nav.js" defer></script>
+    <style>
+      :root {
+        --ink: #1f2421;
+        --muted: #68706a;
+        --paper: #f7f5ef;
+        --panel: #fffdf8;
+        --line: #ded7c8;
+        --forest: #1f5f4a;
+        --clay: #b65c3d;
+        --blue: #315f8a;
+        --gold: #bc8b2c;
+      }
+
+      body {
+        color: var(--ink);
+        background:
+          linear-gradient(135deg, rgba(31, 95, 74, 0.12), transparent 32%),
+          linear-gradient(315deg, rgba(182, 92, 61, 0.12), transparent 34%),
+          var(--paper);
+      }
+
+      .index-shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      .index-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 72px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: inherit;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border: 1px solid rgba(31, 36, 33, 0.16);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .index-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+
+      .index-nav a,
+      .demo-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.82);
+        box-shadow: 0 18px 60px rgba(31, 36, 33, 0.08);
+      }
+
+      .index-nav a {
+        padding: 9px 12px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .index-nav a:hover,
+      .index-nav a:focus-visible {
+        color: var(--ink);
+        border-color: rgba(31, 36, 33, 0.32);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.55fr);
+        gap: 48px;
+        align-items: end;
+        padding-bottom: 56px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--forest);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(3rem, 8vw, 6.8rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .hero p:not(.eyebrow) {
+        max-width: 440px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .demo-card {
+        position: relative;
+        min-height: 260px;
+        overflow: hidden;
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .demo-card::before {
+        position: absolute;
+        inset: 0;
+        height: 6px;
+        content: "";
+        background: var(--accent);
+      }
+
+      .demo-card:hover,
+      .demo-card:focus-within {
+        transform: translateY(-4px);
+        border-color: rgba(31, 36, 33, 0.34);
+        box-shadow: 0 24px 70px rgba(31, 36, 33, 0.12);
+      }
+
+      .demo-card a {
+        display: grid;
+        min-height: 260px;
+        padding: 26px;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .demo-number {
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .demo-card h2 {
+        align-self: end;
+        margin: 48px 0 12px;
+        font-size: clamp(1.45rem, 3vw, 2rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .demo-card p {
+        margin: 0 0 24px;
+        color: var(--muted);
+      }
+
+      .demo-action {
+        align-self: end;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .demo-action::after {
+        content: "->";
+        color: var(--accent);
+      }
+
+      .page-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        margin-top: 56px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 900px) {
+        .index-header,
+        .hero,
+        .page-footer {
+          align-items: flex-start;
+          grid-template-columns: 1fr;
+        }
+
+        .index-header,
+        .page-footer {
+          flex-direction: column;
+        }
+
+        .index-header {
+          padding-bottom: 48px;
+        }
+
+        .index-nav {
+          justify-content: flex-start;
+        }
+
+        .demo-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .index-shell {
+          width: min(100% - 24px, 1120px);
+          padding: 28px 0;
+        }
+
+        .index-nav a {
+          flex: 1 1 calc(50% - 8px);
+          text-align: center;
+        }
+
+        .hero {
+          gap: 24px;
+          padding-bottom: 36px;
+        }
+
+        h1 {
+          font-size: 3.1rem;
+        }
+
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .demo-card,
+        .demo-card a {
+          min-height: 230px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <main class="site-shell">
-      <h1>Web Demos</h1>
-      <p>A collection of static web demo concepts.</p>
-      <nav class="demo-list" aria-label="Demo pages">
-        <a href="premium-service/">Premium Service</a>
-        <a href="gallery-portfolio/">Gallery Portfolio</a>
-        <a href="local-business/">Local Business</a>
-        <a href="experimental-motion/">Experimental Motion</a>
-      </nav>
-    </main>
+    <div class="index-shell">
+      <header class="index-header" aria-label="Site header">
+        <a class="brand" href="/" aria-label="Web Demos home">
+          <span class="brand-mark" aria-hidden="true">WD</span>
+          <span>Web Demos</span>
+        </a>
+        <nav class="index-nav" aria-label="Demo shortcuts">
+          <a href="/premium-service/">Service</a>
+          <a href="/gallery-portfolio/">Portfolio</a>
+          <a href="/local-business/">Business</a>
+          <a href="/experimental-motion/">Motion</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Static website collection</p>
+            <h1 id="page-title">Four focused website demos.</h1>
+          </div>
+          <p>
+            A compact portfolio of responsive, no-framework web concepts for service brands,
+            artists, neighborhood businesses, and motion-led product experiences.
+          </p>
+        </section>
+
+        <ol class="demo-grid" aria-label="Website demos">
+          <li class="demo-card" style="--accent: var(--forest)">
+            <a href="/premium-service/">
+              <span class="demo-number">01</span>
+              <h2>Premium Service Demo</h2>
+              <p>
+                A polished consulting-style landing page with trust signals,
+                service positioning, case studies, and a conversion-focused contact section.
+              </p>
+              <span class="demo-action">Open demo</span>
+            </a>
+          </li>
+
+          <li class="demo-card" style="--accent: var(--blue)">
+            <a href="/gallery-portfolio/">
+              <span class="demo-number">02</span>
+              <h2>Gallery Portfolio Demo</h2>
+              <p>
+                An editorial artist portfolio with image-led sections,
+                project categories, selected works, and gallery browsing interactions.
+              </p>
+              <span class="demo-action">Open demo</span>
+            </a>
+          </li>
+
+          <li class="demo-card" style="--accent: var(--clay)">
+            <a href="/local-business/">
+              <span class="demo-number">03</span>
+              <h2>Local Business Demo</h2>
+              <p>
+                A warm neighborhood cafe site with menu highlights, visit details,
+                hours, reservation prompts, and practical local information.
+              </p>
+              <span class="demo-action">Open demo</span>
+            </a>
+          </li>
+
+          <li class="demo-card" style="--accent: var(--gold)">
+            <a href="/experimental-motion/">
+              <span class="demo-number">04</span>
+              <h2>Experimental Motion Demo</h2>
+              <p>
+                A kinetic product concept with layered panels, interactive cards,
+                scroll movement, and a more expressive interface direction.
+              </p>
+              <span class="demo-action">Open demo</span>
+            </a>
+          </li>
+        </ol>
+      </main>
+
+      <footer class="page-footer">
+        <span>Built as static HTML, CSS, and JavaScript.</span>
+        <span>No frameworks. Shared base styles. Responsive by default.</span>
+      </footer>
+    </div>
   </body>
 </html>
